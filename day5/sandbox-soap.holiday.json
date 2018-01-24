@@ -1,0 +1,83 @@
+{
+	"info": {
+		"name": "sandbox-soap",
+		"_postman_id": "5b542da7-8fb7-0df3-cfe1-0e7bf7ecef76",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "holiday-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "295f8036-7b87-4031-9b68-e70bc6539228",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"First holiday on Feb should be GROUNDHOG-DAY\", function () {",
+							"    //var holiday = pm.globals.get(\"holiday\");",
+							"    var holiday = pm.variables.get(\"holiday\");",
+							"    var jsonObject = xml2Json(responseBody);",
+							"    console.log(jsonObject);",
+							"    pm.expect(jsonObject['soap:Envelope']['soap:Body']",
+							"    .GetHolidaysForMonthResponse",
+							"    .GetHolidaysForMonthResult",
+							"    .Holiday[0].HolidayCode)",
+							"    .to.eql(holiday);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "638359e3-a3a7-43c7-88f6-5d2c318c7b10",
+						"type": "text/javascript",
+						"exec": [
+							"//pm.globals.set(\"holiday\", pm.variables.get(\"holiday\"));",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:hs=\"http://www.holidaywebservice.com/HolidayService_v2/\">\n <soapenv:Body>\n     <hs:GetHolidaysForMonth>\n        <hs:year>2018</hs:year>\n        <hs:countryCode>{{country}}</hs:countryCode>\n        <hs:month>2</hs:month>\n     </hs:GetHolidaysForMonth>\n </soapenv:Body>\n</soapenv:Envelope>"
+				},
+				"url": {
+					"raw": "http://www.holidaywebservice.com//HolidayService_v2/HolidayService2.asmx",
+					"protocol": "http",
+					"host": [
+						"www",
+						"holidaywebservice",
+						"com"
+					],
+					"path": [
+						"",
+						"HolidayService_v2",
+						"HolidayService2.asmx"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
