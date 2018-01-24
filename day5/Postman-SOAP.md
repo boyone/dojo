@@ -25,11 +25,15 @@ Body:  raw:  text/xml
 
 Test:  
 ```js
-pm.test("Your test name", function () {
+pm.test("First holiday on Feb should be GROUNDHOG-DAY", function () {
     
     var jsonObject = xml2Json(responseBody);
     console.log(jsonObject);
-    pm.expect(jsonObject['soap:Envelope']['soap:Body'].GetHolidaysForMonthResponse.GetHolidaysForMonthResult.Holiday[0].HolidayCode).to.eql("GROUNDHOG-DAY");
+    pm.expect(jsonObject['soap:Envelope']['soap:Body']
+    .GetHolidaysForMonthResponse
+    .GetHolidaysForMonthResult
+    .Holiday[0].HolidayCode)
+    .to.eql("GROUNDHOG-DAY");
 });
 ```
 
