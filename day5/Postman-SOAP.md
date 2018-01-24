@@ -1,7 +1,7 @@
 ### Postman [SOAP]
 
 
-#### Example:  Search Holiday in Canada on 
+#### Example:  Search Holiday in Canada on 2018 Feb
 Http Method:  
 POST
 
