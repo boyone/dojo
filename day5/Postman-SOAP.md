@@ -58,112 +58,48 @@ Response Body:
                     <BankHoliday>NotRecognized</BankHoliday>
                     <Date>2018-02-13T00:00:00</Date>
                 </Holiday>
-                <Holiday>
-                    <Country>Canada</Country>
-                    <HolidayCode>ASH-WEDNESDAY</HolidayCode>
-                    <Descriptor>Ash Wednesday</Descriptor>
-                    <HolidayType>Religious</HolidayType>
-                    <DateType>ObservedActual</DateType>
-                    <BankHoliday>NotRecognized</BankHoliday>
-                    <Date>2018-02-14T00:00:00</Date>
-                </Holiday>
-                <Holiday>
-                    <Country>Canada</Country>
-                    <HolidayCode>VALENTINES-DAY</HolidayCode>
-                    <Descriptor>Valentine's Day</Descriptor>
-                    <HolidayType>Notable</HolidayType>
-                    <DateType>ObservedActual</DateType>
-                    <BankHoliday>NotRecognized</BankHoliday>
-                    <Date>2018-02-14T00:00:00</Date>
-                </Holiday>
-                <Holiday>
-                    <Country>Canada</Country>
-                    <HolidayCode>FLAG-DAY</HolidayCode>
-                    <Descriptor>Flag Day</Descriptor>
-                    <HolidayType>Notable</HolidayType>
-                    <DateType>ObservedActual</DateType>
-                    <BankHoliday>NotRecognized</BankHoliday>
-                    <Date>2018-02-15T00:00:00</Date>
-                </Holiday>
-                <Holiday>
-                    <Country>Canada</Country>
-                    <HolidayCode>HERITAGE-DAY-YT</HolidayCode>
-                    <Descriptor>Heritage Day (YT)</Descriptor>
-                    <HolidayType>Other</HolidayType>
-                    <DateType>ObservedActual</DateType>
-                    <BankHoliday>Recognized</BankHoliday>
-                    <Date>2018-02-16T00:00:00</Date>
-                    <ApplicableRegions>
-                        <RegionCode>
-                            <Code>YT</Code>
-                            <Description>Yukon</Description>
-                        </RegionCode>
-                    </ApplicableRegions>
-                </Holiday>
-                <Holiday>
-                    <Country>Canada</Country>
-                    <HolidayCode>FAMILY-DAY</HolidayCode>
-                    <Descriptor>Family Day (AB, ON, SK)</Descriptor>
-                    <HolidayType>Notable</HolidayType>
-                    <DateType>ObservedActual</DateType>
-                    <BankHoliday>Recognized</BankHoliday>
-                    <Date>2018-02-19T00:00:00</Date>
-                    <ApplicableRegions>
-                        <RegionCode>
-                            <Code>AB</Code>
-                            <Description>Alberta</Description>
-                        </RegionCode>
-                        <RegionCode>
-                            <Code>ON</Code>
-                            <Description>Ontario</Description>
-                        </RegionCode>
-                        <RegionCode>
-                            <Code>SK</Code>
-                            <Description>Saskatchewan</Description>
-                        </RegionCode>
-                    </ApplicableRegions>
-                </Holiday>
-                <Holiday>
-                    <Country>Canada</Country>
-                    <HolidayCode>ISLANDER-DAY</HolidayCode>
-                    <Descriptor>Islander Day (PE)</Descriptor>
-                    <HolidayType>Other</HolidayType>
-                    <DateType>ObservedActual</DateType>
-                    <BankHoliday>Recognized</BankHoliday>
-                    <Date>2018-02-19T00:00:00</Date>
-                    <ApplicableRegions>
-                        <RegionCode>
-                            <Code>PE</Code>
-                            <Description>Prince Edward Island</Description>
-                        </RegionCode>
-                    </ApplicableRegions>
-                </Holiday>
-                <Holiday>
-                    <Country>Canada</Country>
-                    <HolidayCode>LOUIS-RIEL-DAY</HolidayCode>
-                    <Descriptor>Louis Riel Day (MB)</Descriptor>
-                    <HolidayType>Notable</HolidayType>
-                    <DateType>ObservedActual</DateType>
-                    <BankHoliday>Recognized</BankHoliday>
-                    <Date>2018-02-19T00:00:00</Date>
-                    <ApplicableRegions>
-                        <RegionCode>
-                            <Code>MB</Code>
-                            <Description>Manitoba</Description>
-                        </RegionCode>
-                    </ApplicableRegions>
-                </Holiday>
             </GetHolidaysForMonthResult>
         </GetHolidaysForMonthResponse>
     </soap:Body>
 </soap:Envelope>
 ```
 
+Convert XML body to a JSON
+```js
+{
+    "soap:Envelope": {
+        "soap:Body": {
+            "GetHolidaysForMonthResponse":{
+                "GetHolidaysForMonthResult": {
+                    "Holiday": [
+                        { "Country": "Canada",
+                         "HolidayCode": "GROUNDHOG-DAY", 
+                         "Descriptor": "Groundhog Day", 
+                         "HolidayType": "Other", 
+                         "DateType": "ObservedActual", 
+                         "BankHoliday": "NotRecognized", 
+                         "Date": "2018-02-02T00:00:00"
+                        }, 
+                        { "Country": "Canada",
+                         "HolidayCode": "SHROVE-TUESDAY", 
+                         "Descriptor": "Shrove Tuesday (Pancake Day)", 
+                         "HolidayType": "Religious", 
+                         "DateType": "ObservedActual", 
+                         "BankHoliday": "NotRecognized", 
+                         "Date": "2018-02-13T00:00:00"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
+
+```
+
 Link:  
 [http://blog.getpostman.com/2014/08/22/making-soap-requests-using-postman/](http://blog.getpostman.com/2014/08/22/making-soap-requests-using-postman/)  
 [http://blog.getpostman.com/2017/11/18/postman-makes-soap-requests-too/](http://blog.getpostman.com/2017/11/18/postman-makes-soap-requests-too/)  
-
 [http://noelarlante.com/soap-requests-using-postman-error-solved/](http://noelarlante.com/soap-requests-using-postman-error-solved/)  
-
 [https://www.krengeltech.com/2017/05/tutorial-using-postman-to-test-xml-web-services/](https://www.krengeltech.com/2017/05/tutorial-using-postman-to-test-xml-web-services/)  
 
